@@ -1,38 +1,103 @@
-# DIO - Trilha .NET - Fundamentos
-www.dio.me
+# Projeto Estacionamento - Desafio Fundamentos C#
 
-## Desafio de projeto
-Para este desafio, você precisará usar seus conhecimentos adquiridos no módulo de fundamentos, da trilha .NET da DIO.
+### *Descrição*
 
-## Contexto
-Você foi contratado para construir um sistema para um estacionamento, que será usado para gerenciar os veículos estacionados e realizar suas operações, como por exemplo adicionar um veículo, remover um veículo (e exibir o valor cobrado durante o período) e listar os veículos.
+Este projeto consiste em uma aplicação console simples para gerenciamento de um estacionamento.
+Permite adicionar veículos, remover veículos com cálculo do preço pelo tempo estacionado, e listar os veículos presentes.
 
-## Proposta
-Você precisará construir uma classe chamada "Estacionamento", conforme o diagrama abaixo:
-![Diagrama de classe estacionamento](diagrama_classe_estacionamento.png)
+Foi desenvolvido como parte do desafio da DIO - WEX - End to End Engineering, focando em manipulação de listas, entrada e saída no console, e conceitos básicos de orientação a objetos.
 
-A classe contém três variáveis, sendo:
+### *Tecnologias*
+C#
 
-**precoInicial**: Tipo decimal. É o preço cobrado para deixar seu veículo estacionado.
-
-**precoPorHora**: Tipo decimal. É o preço por hora que o veículo permanecer estacionado.
-
-**veiculos**: É uma lista de string, representando uma coleção de veículos estacionados. Contém apenas a placa do veículo.
-
-A classe contém três métodos, sendo:
-
-**AdicionarVeiculo**: Método responsável por receber uma placa digitada pelo usuário e guardar na variável **veiculos**.
-
-**RemoverVeiculo**: Método responsável por verificar se um determinado veículo está estacionado, e caso positivo, irá pedir a quantidade de horas que ele permaneceu no estacionamento. Após isso, realiza o seguinte cálculo: **precoInicial** * **precoPorHora**, exibindo para o usuário.
-
-**ListarVeiculos**: Lista todos os veículos presentes atualmente no estacionamento. Caso não haja nenhum, exibir a mensagem "Não há veículos estacionados".
-
-Por último, deverá ser feito um menu interativo com as seguintes ações implementadas:
-1. Cadastrar veículo
-2. Remover veículo
-3. Listar veículos
-4. Encerrar
+.NET 9.0
 
 
-## Solução
-O código está pela metade, e você deverá dar continuidade obedecendo as regras descritas acima, para que no final, tenhamos um programa funcional. Procure pela palavra comentada "TODO" no código, em seguida, implemente conforme as regras acima.
+### *Como executar*
+
+1. Ter o Visual Studio Code
+2. Certifique-se de ter o .NET SDK instalado.
+3. Você pode baixar em: https://dotnet.microsoft.com/download
+
+### *Funcionalidades*
+
+1. *Adicionar Veículo*
+
+Solicita que o usuário digite a placa do veículo, valida e adiciona na lista interna do estacionamento.
+
+2. *Remover Veículo*
+
+Solicita a placa para remoção, verifica se o veículo está estacionado, pergunta o tempo que ficou estacionado, calcula o valor total e remove da lista.
+
+3. *Listar Veículos*
+
+Exibe todos os veículos atualmente estacionados.
+
+### *Explicação das Implementações na Classe Estacionamento*
+
+Este trecho apresenta as principais implementações feitas no código para que funcione corretamente e de forma robusta.
+
+1. *Captura e tratamento da placa do veículo*
+   
+   Utilizamos Console.ReadLine() para capturar a entrada do usuário.
+
+   Apliquei Trim() e ToUpper() para padronizar a placa e evitar erros na comparação.
+
+2. *Validação e cálculo no método RemoverVeiculo()*
+   
+   Confirma se o veículo está na lista antes de tentar remover.
+
+   Solicita e valida a entrada do tempo em horas (garantindo que seja um número inteiro positivo).
+
+*Calcula o preço final usando a fórmula:*
+
+precoInicial + precoPorHora * horas
+
+Remove o veículo da lista após o cálculo.
+
+3. *Listagem com laço de repetição*
+   
+Utilizei um foreach para listar todas as placas cadastradas.
+
+4. *Feedback visual*
+   
+Usei cores no console para mensagens de entrada, sucesso e erro, facilitando a interação do usuário.
+
+
+## *Exemplo de uso*
+
+Digite a placa do veículo para estacionar:
+
+ABC1234
+
+Veículo ABC1234 estacionado com sucesso!
+
+
+Digite a placa do veículo para remover:
+
+ABC1234
+
+Digite a quantidade de horas que o veículo permaneceu estacionado:
+
+3
+
+O veículo ABC1234 foi removido e o preço total foi de: R$ 23,00
+
+
+Os veículos estacionados são:
+
+(Se não houver veículos, aparece mensagem informando isso)
+
+
+# *Possíveis melhorias futuras*
+
+1. Validar formato da placa usando expressões regulares.
+
+
+2. Implementar persistência dos dados (em arquivo ou banco de dados).
+
+
+3. Criar interface gráfica para facilitar o uso.
+
+
+4. Adicionar mais opções de gerenciamento, como buscar veículos, atualizar preços, etc.
