@@ -10,7 +10,7 @@ Foi desenvolvido como parte do desafio da DIO - WEX - End to End Engineering, fo
 ### *Tecnologias*
 C#
 
-.NET 9.0
+.NET 9.0 (foi necessário alterar essa versão, pois a do código disponibilizado era 6.0)
 
 
 ### *Como executar*
